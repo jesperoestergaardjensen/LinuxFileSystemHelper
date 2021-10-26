@@ -1,0 +1,24 @@
+{
+    "name": "jesperoestergaardjensen/linux-file-system-helper",
+    "description": "Small helper to perform Linux file system specific operations",
+    "license": "GNU GPLv3",
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "LinuxFileSystemHelper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LinuxFileSystemHelper\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
