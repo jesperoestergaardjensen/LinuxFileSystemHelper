@@ -1,7 +1,7 @@
 {
     "name": "jesperoestergaardjensen/linux-file-system-helper",
     "description": "Small helper to perform Linux file system specific operations",
-    "license": "GNU GPLv3",
+    "license": "gpl-3.0",
     "require": {
         "php": "^7.4"
     },
