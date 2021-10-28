@@ -25,6 +25,7 @@ class FolderHelperTest extends TestCase
         $this->expectException(LinuxFileSystemHelperException::class);
         FolderHelper::createFolder('invalid-path');
     }
+
     public function testCreateFolderSuccess()
     {
         $folder_to_create = self::getTestFolder();
