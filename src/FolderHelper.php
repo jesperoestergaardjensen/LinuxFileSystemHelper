@@ -30,4 +30,32 @@ class FolderHelper
             return true;
         }
     }
+
+    /**
+     * Return a list of files. A line in the list could e.g. look like this:
+     * 7475750;2021-11-07;/home/[some folder name]/LinuxFileSystemHelper/tests/data/photos/SampleJPGImage_100kbmb.jpg
+     *
+     * First column being inode
+     * Secound column date of creation
+     * Third column full path and file name.
+     *
+     * @param string     $path_to_search
+     * @param string     $file_type             File type to list e.g. '.jpg'
+     * @param array|null $folder_ignore_list    List of folders to ignore e.g. ['.trash']
+     *
+     * @return array
+     */
+    public static function listFilesRecursiveFromFolder(string $path_to_search, string $file_type, array $folder_ignore_list = []): array
+    {
+        $folder_ignore_pattern = '';
+
+        // Prepare ignore string
+        foreach ($folder_ignore_list as $folder_to_ignore) {
+            $folder_ignore_pattern .= ' -name ' . $folder_to_ignore. ' -prune -o ';
+        }
+
+        $command_to_execute = 'find \'' . $path_to_search . '\' ' . $folder_ignore_pattern. ' -printf "%i;%TY-%Tm-%Td;%p\n" | grep "'.$file_type.'" -i ';
+        exec($command_to_execute, $files);
+        return $files;
+    }
 }
