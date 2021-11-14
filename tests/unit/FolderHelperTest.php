@@ -8,12 +8,19 @@ use PHPUnit\Framework\TestCase;
 
 class FolderHelperTest extends TestCase
 {
-    public static function getTestFolder(): string {
-        return dirname(__DIR__) . "/data/test-folder/";
+    public static function getDataFolder(): string
+    {
+        return dirname(__DIR__) . "/data/";
     }
 
-    public static function getPhotosTestFolder(): string {
-        return dirname(__DIR__) . "/data/photos/";
+    public static function getTestFolder(): string
+    {
+        return self::getDataFolder() . "test-folder/";
+    }
+
+    public static function getPhotosTestFolder(): string
+    {
+        return self::getDataFolder() . "photos/";
     }
 
     public static function tearDownAfterClass(): void
@@ -42,16 +49,17 @@ class FolderHelperTest extends TestCase
     public function testListFilesRecursiveFromFolderCaseIgnoreFilter()
     {
         // Two file are expected with no filter
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(),'.jpg');
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.jpg');
         $this->assertCount(2, $file_list, 'Two file are expected with no filter');
 
         // One file is expected with filter
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(),'.jpg', ['.trash']);
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.jpg', ['.trash']);
         $this->assertCount(1, $file_list, 'One file is expected with filter');
     }
+
     public function testListFilesRecursiveFromFolderCaseB()
     {
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(),'.jpg', ['.trash']);
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.jpg', ['.trash']);
 
         $file_info_array = explode(';', $file_list[0]);
 
@@ -62,7 +70,15 @@ class FolderHelperTest extends TestCase
 
     public function testListFilesRecursiveFromFolderCaseC()
     {
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(),'.pdf');
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.pdf');
         $this->assertEmpty($file_list);
+    }
+
+    public function testIsFolderEmpty()
+    {
+        $this->assertTrue(FolderHelper::isFolderEmpty(self::getDataFolder() . 'empty-folder'),
+            'folder should be seen as empty');
+        $this->assertFalse(FolderHelper::isFolderEmpty(self::getDataFolder() . 'non-empty-folder'),
+            'folder should be seen as non-empty');
     }
 }

@@ -6,6 +6,8 @@ use LinuxFileSystemHelper\Exceptions\LinuxFileSystemHelperException;
 
 class FolderHelper
 {
+    public const EMPTY_LINUX_FOLDER = ['.', '..'];
+
     /**
      * @param string $folder
      * @param bool   $recursive
@@ -57,5 +59,26 @@ class FolderHelper
         $command_to_execute = 'find \'' . $path_to_search . '\' ' . $folder_ignore_pattern. ' -printf "%i;%TY-%Tm-%Td;%p\n" | grep "'.$file_type.'" -i ';
         exec($command_to_execute, $files);
         return $files;
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return bool
+     * @throws LinuxFileSystemHelperException
+     */
+    public static function isFolderEmpty(string $path): bool
+    {
+        $scan_result = scandir($path);
+
+        if ($scan_result === false) {
+            throw new LinuxFileSystemHelperException("The supplied path ($path) do not seem to be a folder!");
+        }
+
+        if ($scan_result == self::EMPTY_LINUX_FOLDER) {
+            return true;
+        }
+
+        return false;
     }
 }
