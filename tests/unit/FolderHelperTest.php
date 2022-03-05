@@ -53,24 +53,24 @@ class FolderHelperTest extends TestCase
         $this->assertCount(2, $file_list, 'Two file are expected with no filter');
 
         // One file is expected with filter
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.jpg', ['.trash']);
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), 'jpg', ['.trash']);
         $this->assertCount(1, $file_list, 'One file is expected with filter');
     }
 
     public function testListFilesRecursiveFromFolderCaseB()
     {
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.jpg', ['.trash']);
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), 'jpg', ['.trash']);
 
         $file_info_array = explode(';', $file_list[0]);
 
         $this->assertTrue(is_numeric($file_info_array[0]));
-        $this->assertEquals('2021-11-07', $file_info_array[1]);
+        $this->assertEquals('2021-11-28', $file_info_array[1]);
         $this->assertEquals(self::getPhotosTestFolder() . 'SampleJPGImage_100kbmb.jpg', $file_info_array[2]);
     }
 
     public function testListFilesRecursiveFromFolderCaseC()
     {
-        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), '.pdf');
+        $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), 'pdf');
         $this->assertEmpty($file_list);
     }
 

@@ -56,7 +56,7 @@ class FolderHelper
             $folder_ignore_pattern .= ' -name ' . $folder_to_ignore. ' -prune -o ';
         }
 
-        $command_to_execute = 'find \'' . $path_to_search . '\' ' . $folder_ignore_pattern. ' -printf "%i;%TY-%Tm-%Td;%p\n" | grep "'.$file_type.'" -i ';
+        $command_to_execute = 'find \'' . $path_to_search . '\' ' . $folder_ignore_pattern. ' -printf "%i;%TY-%Tm-%Td;%p\n" | grep "\.'.ltrim($file_type,'.').'$" -i ';
         exec($command_to_execute, $files);
         return $files;
     }
