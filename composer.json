@@ -3,7 +3,7 @@
     "description": "Small helper to perform Linux file system specific operations",
     "license": "gpl-3.0-only",
     "require": {
-        "php": "^7.4"
+        "php": ">=7.4"
     },
     "autoload": {
         "psr-4": {
