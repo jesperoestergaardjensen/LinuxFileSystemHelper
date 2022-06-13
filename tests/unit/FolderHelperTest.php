@@ -76,6 +76,9 @@ class FolderHelperTest extends TestCase
 
     public function testIsFolderEmpty()
     {
+        $folder_to_create = self::getDataFolder();
+        FolderHelper::createFolder($folder_to_create . 'empty-folder');
+
         $this->assertTrue(FolderHelper::isFolderEmpty(self::getDataFolder() . 'empty-folder'),
             'folder should be seen as empty');
         $this->assertFalse(FolderHelper::isFolderEmpty(self::getDataFolder() . 'non-empty-folder'),
