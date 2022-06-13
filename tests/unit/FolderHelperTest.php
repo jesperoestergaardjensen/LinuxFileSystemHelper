@@ -64,7 +64,7 @@ class FolderHelperTest extends TestCase
         $file_info_array = explode(';', $file_list[0]);
 
         $this->assertTrue(is_numeric($file_info_array[0]));
-        $this->assertEquals('2021-11-28', $file_info_array[1]);
+        $this->assertEquals('2022-06-13', $file_info_array[1]);
         $this->assertEquals(self::getPhotosTestFolder() . 'SampleJPGImage_100kbmb.jpg', $file_info_array[2]);
     }
 
