@@ -19,6 +19,6 @@
         "phpunit/phpunit": "^9.5"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit tests --log-junit '.github/workflows/clover.xml' --coverage-clover '.github/workflows/clover.xml'"
+        "test": "vendor/bin/phpunit tests --log-junit 'clover.xml' --coverage-clover 'clover.xml'"
     }
 }
