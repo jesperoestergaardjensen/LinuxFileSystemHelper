@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests" tests="10" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="0.013220">
+    <testsuite name="LinuxFileSystemHelper\Tests\unit\FileHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FileHelperTest.php" tests="4" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.004242">
+      <testcase name="testCreateFolderFail" class="LinuxFileSystemHelper\Tests\unit\FileHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FileHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FileHelperTest.php" line="26" assertions="1" time="0.002165"/>
+      <testcase name="testCopyFile" class="LinuxFileSystemHelper\Tests\unit\FileHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FileHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FileHelperTest.php" line="33" assertions="1" time="0.000134"/>
+      <testcase name="testMoveFile" class="LinuxFileSystemHelper\Tests\unit\FileHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FileHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FileHelperTest.php" line="39" assertions="1" time="0.000117"/>
+      <testcase name="testDiffFiles" class="LinuxFileSystemHelper\Tests\unit\FileHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FileHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FileHelperTest.php" line="45" assertions="2" time="0.001826"/>
+    </testsuite>
+    <testsuite name="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" tests="6" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.008979">
+      <testcase name="testCreateFolderFail" class="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" line="33" assertions="1" time="0.000607"/>
+      <testcase name="testCreateFolderSuccess" class="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" line="42" assertions="1" time="0.000131"/>
+      <testcase name="testListFilesRecursiveFromFolderCaseIgnoreFilter" class="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" line="49" assertions="2" time="0.003963"/>
+      <testcase name="testListFilesRecursiveFromFolderCaseB" class="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" line="60" assertions="3" time="0.002142"/>
+      <testcase name="testListFilesRecursiveFromFolderCaseC" class="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" line="71" assertions="1" time="0.001939"/>
+      <testcase name="testIsFolderEmpty" class="LinuxFileSystemHelper\Tests\unit\FolderHelperTest" classname="LinuxFileSystemHelper.Tests.unit.FolderHelperTest" file="/home/jesper_privat/web-udvikling/linux-file-system-helper/tests/unit/FolderHelperTest.php" line="77" assertions="2" time="0.000197"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
