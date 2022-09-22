@@ -17,7 +17,7 @@ class FileHelper
 
     public static function diffFiles(string $fileNameAndPath1, string $fileNameAndPath2): array
     {
-        exec('diff ' . '"' . $fileNameAndPath1 . '" "' . $fileNameAndPath2 . '"', $linesThatDiffers);
+        exec('diff ' . '"' . $fileNameAndPath1 . '" "' . $fileNameAndPath2 . '" -w', $linesThatDiffers);
         return $linesThatDiffers;
     }
 
