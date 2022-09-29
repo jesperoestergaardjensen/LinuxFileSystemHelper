@@ -33,7 +33,7 @@ class FileHelper
         }
 
         if (file_exists($destination)) {
-            $destination .= time();
+            $destination .= '-' . time();
         }
 
         if (@rename($source, $destination) == false) {

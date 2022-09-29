@@ -30,11 +30,15 @@ class FolderHelperTest extends TestCase
         }
     }
 
-    public function testCreateFolderFail()
+    public function testCreateFolderFailCase1()
     {
         $this->expectException(LinuxFileSystemHelperException::class);
         FolderHelper::createFolder('/invalid-path/');
 
+    }
+
+    public function testCreateFolderFailCase2()
+    {
         $this->expectException(LinuxFileSystemHelperException::class);
         FolderHelper::createFolder('invalid-path');
     }
@@ -59,6 +63,9 @@ class FolderHelperTest extends TestCase
 
     public function testListFilesRecursiveFromFolderCaseB()
     {
+        // Make sure test work both locally and on GitHub actions
+        touch(self::getPhotosTestFolder() . 'SampleJPGImage_100kbmb.jpg');
+
         $file_list = FolderHelper::listFilesRecursiveFromFolder(self::getPhotosTestFolder(), 'jpg', ['.trash']);
 
         $file_info_array = explode(';', $file_list[0]);
@@ -76,6 +83,9 @@ class FolderHelperTest extends TestCase
 
     public function testIsFolderEmpty()
     {
+        $path_and_file = self::getTestFolder() . 'random-file.txt';
+        touch($path_and_file);
+
         $folder_to_create = self::getDataFolder();
         FolderHelper::createFolder($folder_to_create . 'empty-folder');
 
@@ -83,5 +93,13 @@ class FolderHelperTest extends TestCase
             'folder should be seen as empty');
         $this->assertFalse(FolderHelper::isFolderEmpty(self::getDataFolder() . 'non-empty-folder'),
             'folder should be seen as non-empty');
+
+        $this->expectException(LinuxFileSystemHelperException::class);
+        $this->expectExceptionMessage("The supplied path ($path_and_file) do not seem to be a folder!");
+        try {
+            FolderHelper::isFolderEmpty($path_and_file);
+        } finally {
+            unlink($path_and_file);
+        }
     }
 }

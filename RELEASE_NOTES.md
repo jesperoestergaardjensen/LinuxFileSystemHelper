@@ -1,4 +1,8 @@
 ## Release notes : _LinuxFileSystemHelper_
+### Version 1.0.0 - Sep 2022
+#### Changes
+* 100% test coverage.
+
 ### Version 1.0.0-beta.4 - Mar 2022
 #### Fix
 * Fix internal regex used in the `listFilesRecursiveFromFolder` method.

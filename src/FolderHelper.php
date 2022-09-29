@@ -3,6 +3,7 @@
 namespace LinuxFileSystemHelper;
 
 use LinuxFileSystemHelper\Exceptions\LinuxFileSystemHelperException;
+use Throwable;
 
 class FolderHelper
 {
@@ -69,9 +70,9 @@ class FolderHelper
      */
     public static function isFolderEmpty(string $path): bool
     {
-        $scan_result = scandir($path);
-
-        if ($scan_result === false) {
+        try {
+            $scan_result = scandir($path);
+        } catch (Throwable $exception) {
             throw new LinuxFileSystemHelperException("The supplied path ($path) do not seem to be a folder!");
         }
 
