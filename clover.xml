@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664548308">
-  <project timestamp="1664548308">
+<coverage generated="1664563953">
+  <project timestamp="1664563953">
     <file name="/home/jesper_privat/web-udvikling/linux-file-system-helper/src/Exceptions/LinuxFileSystemHelperException.php">
       <class name="LinuxFileSystemHelper\Exceptions\LinuxFileSystemHelperException" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
