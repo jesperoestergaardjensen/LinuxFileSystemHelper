@@ -1,4 +1,8 @@
 ## Release notes : _LinuxFileSystemHelper_
+### Version 2.0.0 - Jan 2025
+#### Changes
+* Namespace changes
+
 ### Version 1.0.0 - Sep 2022
 #### Changes
 * 100% test coverage.
